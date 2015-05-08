@@ -1,2 +1,4 @@
 *.Rproj
 Getting and Cleaning Data/.Rproj.user/
+*.RData
+Getting and Cleaning Data/.Rhistory
