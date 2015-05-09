@@ -38,7 +38,7 @@ head(cameraData)
 
 ##Download data
 fileUrl<- "https://data.baltimorecity.gov/api/views/dz54-2aru/rows.xlsx?accessType=DOWNLOAD"
-download.file(fileUrl, destfile = "./data/cameras.xlsx", method="internal")
+download.file(fileUrl, destfile = "./data/cameras.xlsx", method="internal",mode='wb')
 list.files("./data")
 
 dataDownloaded<- date()
@@ -49,5 +49,5 @@ if (!file.exists(".data/cameraData.xlsx")) {
 }
 
 cameraData.xlsx <-  read.xlsx("./data/cameras.xlsx" ,rowIndex = 1:7 ,#colIndex = 2:3,
-                         sheetIndex = 1,header = T)
+                         sheetIndex = 1)
 head(cameraData.xlsx)
