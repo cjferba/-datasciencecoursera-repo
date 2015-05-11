@@ -141,6 +141,8 @@ set.seed(123)
 DT<-data.table(x=sample(letters[1:3],1E5,T))
 DT[,.N,by=x]
 
+
+## Key
 DT<- data.table(x=rep(c("a","b","c"), each=100),y=rnorm(300))
 setkey(DT,x)
 DT['a']
@@ -149,3 +151,19 @@ DT1<- data.table(x=rep(c("a","b","c"), each=100),y=rnorm(300))
 DT2<- data.table(x=rep(c("a","b","c"), each=100),y=rnorm(300))
 setkey(DT,x)
 DT['a']
+
+## Joins
+DT1<- data.table(x=c("a","a","b","dt1"),y=1:4)
+DT2<- data.table(x=c("a","b","dt2"),y=1:3)
+setkey(DT1,x)
+setkey(DT2,x)
+merge(DT1,DT2)
+
+
+## Fast read
+
+bigDF<- data.frame(x=rnorm(1E6),y=rnorm(1E6))
+file <- tempfile()
+write.table(bigDF,file=file,row.names = F,col.names = T,sep="\t",quote = F)
+system.time(fread(file))
+system.time(read.table(file,header = T,sep="\t"))
