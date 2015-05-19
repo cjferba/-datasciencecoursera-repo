@@ -7,3 +7,4 @@ Getting and Cleaning Data/data/cameras.csv
 Getting and Cleaning Data/data/question3.xlsx
 Getting and Cleaning Data/data/cameras.xlsx
 *.Rhistory
+*.RDataTmp
